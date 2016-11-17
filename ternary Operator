@@ -1,0 +1,13 @@
+using UnityEngine; 
+using System.Collections; 
+
+  public class TernaryOperator : MonoBehaviour
+  {
+   void Start () 
+    {
+    int magic = 20
+    string message;
+    
+    message = magic > 0 ? "Player Has Magic" : "Player Does Not Have Magic";
+    }
+  }
