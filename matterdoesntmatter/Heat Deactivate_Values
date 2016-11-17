@@ -1,0 +1,18 @@
+
+  if(heat < 400)
+            {
+
+                heat += 20;
+                Debug.Log("Heat Value: " + heat);
+                transform.localScale -= new Vector3(0, 0, 0.02F);
+                transform.localPosition -= new Vector3(0, 0.025F, 0);
+
+            }
+
+            if (heat == 350 && gameObject.tag == "Ice")
+            {
+
+                gameObject.SetActive(false);
+                Instantiate(water, new Vector3(transform.position.x, 0.01, transform.position.z), transform.rotation);
+                Heat waterObject = water.GetComponent<Heat>();
+             }
