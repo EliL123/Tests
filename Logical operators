@@ -1,0 +1,33 @@
+{
+public int a; 
+public int b; 
+public int c;
+public int d; 
+
+  void Start ()
+  {
+    if (a == b)
+      {
+        Debug.Log("A = B");
+      }
+    else
+      {
+        Debug.Log("A ≠ B");
+      }
+   }
+   
+   void Update ()
+   {
+    if (c > d)
+      {
+        Debug.Log("C > D");
+      }
+     if (c == d)
+      {
+        Debug.Log("C = D")
+      }
+    else
+      {
+        Debug.Log("C ≤ D");
+    }
+}
