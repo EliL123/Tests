@@ -1,0 +1,12 @@
+using UnityEngine;
+using System.Collections;
+
+public class Projectile : MonoBehaviour
+{
+
+    void OnTriggerEnter(Collider collide)
+    {
+        collide.gameObject.SetActive(false);
+    }
+	
+}
