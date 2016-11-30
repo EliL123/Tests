@@ -1,0 +1,47 @@
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using System.Collections;
+
+public class Shooting : MonoBehaviour
+ 
+   public GameObject hotProjectilePrefab;
+   public GameObject coldProjectilePrefab;
+   public int energy = 1000;
+   public float fireRate = 0.1F;
+   public float nextFire = 0.0F;
+   public Text hud;
+   
+  void Update();
+{
+     if (energy >= 20)
+		{
+
+			if(Input.GetMouseButton(1) && Time.time > nextFire)
+			{
+
+                nextFire = Time.time + fireRate;
+				GameObject projectile = (GameObject) Instantiate(hotProjectilePrefab, transform.position + Camera.main.transform.forward, transform.rotation);
+				Rigidbody rb = projectile.GetComponent<Rigidbody>();
+				rb.velocity = Camera.main.transform.forward * 100;
+                energy -= 20;
+                //Debug.Log("Energy: " + energy);
+				
+			}//end mouse1 hot projectiles
+
+            if (Input.GetMouseButton(0) && Time.time > nextFire)
+            {
+
+                nextFire = Time.time + fireRate;
+                GameObject projectile = (GameObject)Instantiate(coldProjectilePrefab, transform.position + Camera.main.transform.forward, transform.rotation);
+                Rigidbody rb = projectile.GetComponent<Rigidbody>();
+                rb.velocity = Camera.main.transform.forward * 100;
+                energy -= 20;
+                //Debug.Log("Energy: " + energy);
+
+            }//end mouse0 cold projectiles
+
+        }//end if energy
+
+        hud.text = "ENERGY: " + energy;       
+}
